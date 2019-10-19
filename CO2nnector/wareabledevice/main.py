@@ -22,8 +22,6 @@ def web_page():
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <style>
       html {
-       background-color: #000000;
-       color: white;
        font-family: Arial;
        display: inline-block;
        margin: 0px auto;
