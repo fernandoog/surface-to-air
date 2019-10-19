@@ -38,7 +38,9 @@ def web_page():
     </style>
   </head>
   <body>
-    <h2>ESP DHT Server</h2>
+    <p>
+      <img src="https://raw.githubusercontent.com/fernandoog/surface-to-air/master/CO2nnector/images/Log.jpeg"> 
+    </p>
     <p>
       <i class="fas fa-thermometer-half" style="color:#0101DF;"></i> 
       <span class="dht-labels">Temperature</span> 
