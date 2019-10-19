@@ -39,7 +39,7 @@ def web_page():
   </head>
   <body>
     <p>
-      <img src="https://raw.githubusercontent.com/fernandoog/surface-to-air/master/CO2nnector/images/Log.jpeg"> 
+      <img src="https://raw.githubusercontent.com/fernandoog/surface-to-air/master/CO2nnector/images/Logo.jpeg"> 
     </p>
     <p>
       <i class="fas fa-thermometer-half" style="color:#0101DF;"></i> 
@@ -54,8 +54,8 @@ def web_page():
       <sup class="units">%</sup>
     </p>
      <p>
-      <span class="dht-labels">Air Quality</span>
       <i class="fas fa-smile-beam"  style="color:#01DF01;"></i>
+      <span class="dht-labels">Air Quality</span>
     </p>
   </body>
   </html>"""
