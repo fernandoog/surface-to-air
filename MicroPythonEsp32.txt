@@ -18,3 +18,4 @@ import urequests
 response = urequests.post("http://jsonplaceholder.typicode.com/posts", data = "some dummy content")
 print(response.text)
 print(response.json())
+
