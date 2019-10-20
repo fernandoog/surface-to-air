@@ -16,3 +16,12 @@ It's based on:
 * The script asks a server for predicted air quality value for that specific time, longitude and latitude.
 * Data is represented ranging from green (0 minutes of life lost per day there) to red (20 minutes of life lost per day there)
 * The values are updated dynamically when either the selected time (through the slider) or space (through the interactive map) change
+
+srpnetwork
+-------------------------------------------------------
+The Simple Data Pollution Realtime Network where we centralize all the data.
+
+wareabledevice
+--------------------------------------------------------
+The micropython device sensors prototype software
+
