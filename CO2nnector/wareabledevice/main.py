@@ -53,8 +53,8 @@ def web_page():
       <span>""" + str(hum) + """</span>
       <sup class="units">%</sup>
     </p>
-     <p>
-      <i class="fas fa-smile-beam"  style="color:#01DF01;"></i>
+    <p>
+      <i class="fas fa-sad-tear"  style="color:#FF0000;"></i>
       <span class="dht-labels">Air Quality</span>
     </p>
   </body>
@@ -73,8 +73,7 @@ while True:
     print('Content = %s' % str(request))
     sensor_readings = read_sensor()
     print(sensor_readings)
-    response = urequests.post("http://jsonplaceholder.typicode.com/posts", data=sensor_readings)
-    print(response.json())
+    response = urequests.post("http://10.236.2.197:8888/sensor", data=sensor_readings)
     response = web_page()
     conn.send('HTTP/1.1 200 OK\n')
     conn.send('Content-Type: text/html\n')
