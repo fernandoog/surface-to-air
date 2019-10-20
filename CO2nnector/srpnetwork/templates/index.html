@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+
+    <title>CO2nnector</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="static/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="album.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <header>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">About</h4>
+              <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Contact</h4>
+              <ul class="list-unstyled">
+                <li><a href="#" class="text-white">Follow on Twitter</a></li>
+                <li><a href="#" class="text-white">Like on Facebook</a></li>
+                <li><a href="#" class="text-white">Email me</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+ -->
+            <!-- <i class="fas fa-cloud"></i> -->
+            <i class='far fa-heart' style='font-size:24px;color:white'>&nbsp;</i>
+            <strong>CO2nnector</strong>
+          </a>
+          
+        </div>
+      </div>
+    </header>
+
+    <main role="main">
+
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Datos Wearable</h1>
+          
+
+          <canvas class="my-4 chartjs-render-monitor" id="myChart" width="547" height="100" style="display: block; width: 547px; height: 100;"></canvas>
+        </div>
+
+      </section>
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+        
+        <p>Equipo CO2nnector para NASASpaceApps2019</p>
+        
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../o/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+
+
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+
+    <script src="../o/assets/js/vendor/popper.min.js"></script>
+    <script src="../o/dist/js/bootstrap.min.js"></script>
+    <script src="../o/assets/js/vendor/holder.min.js"></script>
+
+
+
+    <script>
+
+      var air_quality = {};
+
+      var ctx = document.getElementById("myChart").getContext('2d');
+
+      var myChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+              // labels: [1,2,3,4,5,6,7,8,9,10],
+              datasets: [{
+                  label: 'GrainWatch', // Name the series
+                  // data: [500, 50, 2424, 14040,  14141,  4111, 4544, 47, 5555, 6811], // Specify the data values array
+                  fill: false,
+                  borderColor: '#2196f3', // Add custom color border (Line)
+                  backgroundColor: '#2196f3', // Add custom color background (Points and Fill)
+                  borderWidth: 1 // Specify bar border width
+              }]
+          },
+          options: {
+            responsive: true, // Instruct chart js to respond nicely.
+            maintainAspectRatio: false, // Add to prevent default behaviour of full-width/height 
+          }
+      });
+
+
+      window.setInterval(function(){
+
+
+
+        console.log("eoeoe")
+
+        url = 'http://localhost:8888/sensor_to_view'
+        // request_body = 
+        fetch(url, {
+          method: 'GET',
+          // body: JSON.stringify(request_body),
+          // headers:{
+          //   // 'Content-Type': 'application/json'
+          // }
+        }).then(res => res.json())
+        .catch(error => console.error('Error:', error))
+        .then(response => air_quality = response);
+        // });
+
+        // $.ajaxSetup({
+        //     type: "POST",
+        //     data: {},
+        //     dataType: 'json',
+        //     xhrFields: {
+        //        withCredentials: true
+        //     },
+        //     crossDomain: true,
+        //     contentType: 'application/json; charset=utf-8'
+        // });
+
+
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: air_quality.x,
+                datasets: [{
+                    label: 'GrainWatch', // Name the series
+                    data: air_quality.y, // Specify the data values array
+                    fill: false,
+                    borderColor: '#2196f3', // Add custom color border (Line)
+                    backgroundColor: '#2196f3', // Add custom color background (Points and Fill)
+                    borderWidth: 1 // Specify bar border width
+                }]
+            }
+        });
+
+
+      }, 10000);
+
+
+
+
+    </script>
+  </body>
+</html>
