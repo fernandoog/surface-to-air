@@ -25,3 +25,4 @@ wareabledevice
 --------------------------------------------------------
 The micropython device sensors prototype software
 
+https://www.youtube.com/watch?v=-5I2oxcQu9o
